@@ -1,0 +1,3 @@
+.venv
+backend/db.sqlite
+backend/__pycache__

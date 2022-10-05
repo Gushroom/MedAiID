@@ -6,6 +6,7 @@ We are currently using Python3.8, Flask requires at least Python 3.7 to function
 1. Make sure you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed
 2. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository
 3. Clone your fork
+4. Fetch and checkout the "dev" branch to work on, you can also create new branches as needed.
 ## Setting up virtual environment
 ### Using linux:
 1. ``` $ cd ``` into the project repository

@@ -45,6 +45,9 @@ def signup_post():
     if user: # if a user is found, we want to redirect back to signup page so user can try again
         flash("Email already exists")
         return redirect(url_for('auth.signup'))
+    if password.__len__() < 8:
+        flash("Password must be at least 8 characters")
+        return redirect(url_for('auth.signup'))
 
     # create a new user with the form data. Hash the password so the plaintext version isn't saved.
     new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))

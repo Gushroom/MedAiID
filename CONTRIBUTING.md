@@ -1,5 +1,5 @@
 # Development
-Untitled is a web application with server written in Python, its server side is currently developed using the Flask framework.
+MedAiID is a web application with server written in Python, its server side is currently developed using the Flask framework.
 ## Using Python
 We are currently using Python3.8, Flask requires at least Python 3.7 to function properly. Please make sure you have up-to-date Python installed.
 ## Getting the code

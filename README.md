@@ -1,4 +1,4 @@
-# Untitled
+# MedAiID
 A project for Pitt CS1530
 ## Contributors:
 

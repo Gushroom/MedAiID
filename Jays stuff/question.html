@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>question</title>
+    <link rel="stylesheet" href="question.css" />
+    <script defer src="question.js"></script>
+  </head>
+
+  <body>
+    <main id="main-holder">
+      <h1 id="question-header">question number</h1>
+      <p id="patient-story">
+        A 4-month-old boy with severe combined immunodeficiency receives a bone
+        marrow transplant. Six days later, he develops a widespread,
+        erythematous, maculopapular rash over the trunk. Examination of a skin
+        biopsy specimen shows diffuse vacuolar degeneration of basal epidermal
+        cells with a mononuclear inflammatory cell infiltrate. Which of the
+        following is the most likely cause of this patient’s rash?
+      </p>
+
+      <form id="question-form">
+        <div class="input-field">
+          <!-- Drop Down Selector -->
+          <select name="cars" id="cars">
+            <option value="">SELECT ANSWER</option>
+            <option value="A">Fixed drug eruption</option>
+            <option value="B">Graft-versus-host disease</option>
+            <option value="C">Immune complex deposition</option>
+            <option value="D">Mast cell degranulation</option>
+            <option value="E">Staphylococcal folliculitis</option>
+          </select>
+        </div>
+
+        <div class="input-field">
+          <!-- Slider -->
+          <label for="points">Confidence (between 0 and 10):</label>
+          <input type="range" id="points" name="points" min="0" max="10" />
+        </div>
+
+        <!-- Text Field -->
+        <div class="input-summary">
+          <label>Summary</label> 
+        </div>
+        <div class="input-summary"></div>
+          <textarea id="Summary" name="Summary" rows="10" cols="50">
+            
+            </textarea
+          >
+        </div>
+
+        <!-- Submit Button -->
+        <input type="submit" value="submit" id="question-form-submit" />
+      </form>
+    </main>
+  </body>
+</html>

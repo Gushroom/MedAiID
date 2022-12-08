@@ -21,7 +21,7 @@
           <a href="{{ url_for('main.responses') }}">See submitted responses</a>
         </div>
         {% if user.role == 'medical professor' %}
-        <div class="w3-medaiid-blue w3-button">
+        <div class="w3-medaiid-blue w3-button" style="border-radius: 10px; padding-left: 10px; padding-right: 10px;  margin: 10px;">
           <a href="{{ url_for('main.upload_question') }}">Upload new questions</a>
         </div>
         {% endif %}

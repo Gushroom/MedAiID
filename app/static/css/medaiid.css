@@ -12,12 +12,9 @@
   background-position: center;
   background-size: cover;
   filter: opacity(85%);
-  background-image: linear-gradient(to right, #DF8940 5%, transparent 90%),
-    url("../images/medstu.jpg");
+  background-image: linear-gradient(to right, #DF8940 5%, transparent 90%), url("/medstu.jpg");
   background-attachment: fixed;
   min-height: 100%;
-  -webkit-text-fill-color: white;
-
 }
 
 .w3-medaiid-orange {
@@ -173,19 +170,14 @@
 
 }
 
-/* Full height image header
-.bgimg-header {
-  background-position: center;
-  background-size: cover;
-  filter: opacity(85%);
-  background-image: linear-gradient(to right, #DF8940 5%, transparent 90%),
-    url("../images/medstu.jpg");
-  background-attachment: fixed;
-  min-height: 100%;
-  -webkit-text-fill-color: white;
-
-} */
-
 .icon {
   color: white;
+}
+
+.w3-button href {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
 }

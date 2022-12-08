@@ -14,7 +14,7 @@ def index():
 @main.route('/home')
 @login_required
 def home():
-    return render_template('home.html', name = current_user.name)
+    return render_template('home.html', user = current_user)
 
 @main.route('/profile/password', methods=['GET', 'POST'])
 @login_required
@@ -38,7 +38,7 @@ def change_password():
 @main.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-    return render_template('profile.html', name = current_user.name, email = current_user.email)
+    return render_template('profile.html', user = current_user)
 
 
 @main.route('/upload', methods=['GET', 'POST'])
@@ -55,34 +55,60 @@ def upload_question():
 @main.route('/questions', methods=['GET', 'POST'])
 @login_required
 def questions():
-    questions = Question.query.all()
-    if not questions:
-        message = "No questions available"
-        return render_template('question.html', questions = questions, message = message)
-    selected_index = random.choice(range(len(questions)))
-    selected_question = questions[selected_index]
-    selected_question_object = Question.query.filter_by(id=selected_question.id).first()
+    all_questions = Question.query.all()
+    questions_answered = current_user.questions
+    unanswered_questions = []
+    for question in all_questions:
+        if question not in questions_answered:
+            unanswered_questions.append(question)
+    if not unanswered_questions:
+        flash('No questions available')
+        return render_template("home.html", user = current_user)
+    selected_question = random.choice(unanswered_questions)
     if request.method == 'GET':
         return render_template('question.html', question = selected_question)
     if request.method == 'POST':
         diagnosis = request.form['Diagnosis']
+        diag_conf = request.form['Diag_conf']
         tests = request.form['Tests']
-        intervetions = request.form['Intervetion']
+        test_conf = request.form['Test_conf']
+        interventions = request.form['Intervention']
+        inter_conf = request.form['Interv_conf']
+        if not diagnosis:
+            flash("Please enter a diagnosis")
+            return render_template('question.html', question = selected_question)
+        if not tests:
+            flash("Please enter a test")
+            return render_template('question.html', question = selected_question)
+        if not interventions:
+            flash("Please enter an intervention")
+            return render_template('question.html', question = selected_question)
         question_id = selected_question.id
         answerer_id = current_user.id
-        confidece = request.form['confidence']
-        print(f"Diagnosis: {diagnosis}, Tests: {tests}, Interventions: {intervetions}, Question ID: {question_id}, Answerer ID: {answerer_id}")
-        new_response = Response(diagnosis=diagnosis, tests=tests, interventions=intervetions, conf_level=confidece, question_id=question_id, user_id=answerer_id)
-        # curr_user = User.query.filter_by(id=answerer_id).first()
-        # curr_user.responses_posted.append(new_response)
+        new_response = Response(diagnosis=diagnosis, diag_conf=diag_conf, 
+        tests=tests, test_conf=test_conf, interventions=interventions, inter_conf=inter_conf, 
+        question_id=question_id, user_id=answerer_id)
         db.session.add(new_response)
         current_user.responses_posted.append(new_response)
         current_user.questions.append(selected_question)
-        selected_question_object.responses.append(new_response)
+        selected_question.responses.append(new_response)
         db.session.commit()
         # add response to the current user
+        flash(f"Response submitted to question {selected_question.id}")
+    return(render_template('home.html', user = current_user))
 
-    return(render_template('question.html', question = selected_question))
+@main.route('/responses', methods=['GET', 'POST'])
+@login_required
+def responses():
+    
+    responses = Response.query.all()
+    return(render_template('responses.html', responses = responses))
+
+@main.route('/responses/<int:uid>/<int:qid>', methods=['GET', 'POST'])
+@login_required
+def response(uid, qid):
+    response = Response.query.filter_by(user_id=uid, question_id=qid).first()
+    return(render_template('response.html', response = response))
 
 
 # @main.route('/question/<int:question_id>', methods=['GET', 'POST'])
@@ -109,3 +135,10 @@ def questions():
 #     db.session.add(new_question)
 #     db.session.commit() 
 #     return render_template('question.html')
+
+@main.route('/answered_questions', methods=['GET', 'POST'])
+@login_required
+def answered():
+    responses = Response.query.all()
+    questions_answered = current_user.questions
+    return(render_template('responses.html', responses = responses))

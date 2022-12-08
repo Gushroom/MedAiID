@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css')}}" />
 
 <!-- Header with full-height image -->
-<header class="bgimg-header w3-display-container w3-grayscale-min" id="home">
-  <img alt="Med Student" src="../static/images/medstu.jpg" />
+<header class="bgimg-header w3-display-container w3-grayscale-min"  id="home">
+ 
   <div class="w3-display-left w3-text-medaiidblue" style="padding:48px"><strong>
       <span class=" w3-text-medaiidblue w3-jumbo w3-hide-small w3-animate-right">Practice your skills While <br>Enabling
         AI in healthcare!</span><br>
@@ -49,7 +50,7 @@
     </div>
     <div class="w3-third container w3-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="1700">
       <span><img class="w3-center abt-logo " src="static/images/Medaiid text only log blk.svg" alt="MedAiID"></span>
-      <div> <img class=" render-gif-med" src="static/images/medint.gif"
+      <div> <img class="render-gif-med" src="static/images/medint.gif"
           alt="This is an animated gif image, but it does not move" />
 
       </div>

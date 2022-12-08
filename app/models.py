@@ -22,11 +22,12 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
+    role = db.Column(db.String(100))
     responses_posted = db.relationship('Response')
     questions = db.relationship('Question', secondary=user_question, backref=db.backref('users', lazy='dynamic'))
 
     def __repr__(self):
-        return f"User('{self.name}')"
+        return f"{self.name}"
 
 
 class Question(db.Model):
@@ -42,9 +43,11 @@ class Question(db.Model):
 class Response(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     diagnosis = db.Column(db.String(1000))
+    diag_conf = db.Column(db.Integer)
     tests = db.Column(db.String(1000))
+    test_conf = db.Column(db.Integer)
     interventions = db.Column(db.String(1000))
-    conf_level = db.Column(db.Integer)
+    inter_conf = db.Column(db.Integer)
 
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

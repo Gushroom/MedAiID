@@ -3,48 +3,53 @@
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 <div class="w3-card-4 w3-large w3-button w3-centered w3-center w3-third">
-    {{ messages[0] }}
+  {{ messages[0] }}
 </div>
 {% endif %}
 {% endwith %}
 {% if questions %}
-<div>Here are the questions you have not attempted:</div>
-{% for question in questions %}
-<a href="{{ url_for('main.question', qid=question.id) }}">{{question.title}}</a>
-{% endfor %}
+<div class="w3-container w3-card-4 w3-center" style="width: 50%; margin: auto;">
+  <h3 class="w3-medaiid-blue w3-padding-small">Here are the questions you have not attempted</h1>
+  <ul class="w3-ul w3-hoverable">
+    {% for question in questions %}
+    <li><a href="{{ url_for('main.question', qid=question.id) }}">{{question.title}}</a></li>
+    {% endfor %}
+  </ul>
+</div>
 
 {% elif question %}
 
-<form class="w3-container" style="padding: 12px" id="about" action="{{ url_for('main.question', qid=question.id) }}" method="post">
-    <div class="w3-card-4">
-      <h1 class="w3-center w3-xxxlarge w3-text-burntorange">Patient Story #{{ question.id }}</h1>
-      <p class="w3-center w3-xlarge">{{ question.content }}</p>
-    </div>
+<form class="w3-container" style="padding: 12px" id="about" action="{{ url_for('main.question', qid=question.id) }}"
+  method="post">
+  <div class="w3-card-4">
+    <h1 class="w3-center w3-xxxlarge w3-text-burntorange">Patient Story #{{ question.id }}</h1>
+    <p class="w3-center w3-xlarge">{{ question.content }}</p>
+  </div>
 
-    <div class="w3-row-padding w3-center" style="margin-top:64px">
-      <div class="w3-card-4 w3-third">
-        <h1 class="w3-center w3-large w3-text-burntorange">Diagnosis Recommendation</h1>
-        <textarea id="Diagnosis" name="Diagnosis" rows="5" cols="40"></textarea>
-        <label class="w3-text-medaiidblue" for="Diag_conf">Confidence:</label>
-        <input type="range" id="Diag_conf" name="Diag_conf" min="0" max="10" />
-      </div>
-      <div class="w3-card-4 w3-third">
-        <h1 class="w3-center w3-large w3-text-burntorange">Test Recommendation</h1>
-        <textarea id="Tests" name="Tests" rows="5" cols="40"></textarea>
-        <label class="w3-text-medaiidblue" for="Test_conf">Confidence:</label>
-        <input type="range" id="Test_conf" name="Test_conf" min="0" max="10" />
-      </div>
-      <div class="w3-card-4 w3-third">
-        <h1 class="w3-center w3-large w3-text-burntorange">Treatment Recommendation</h1>
-        <textarea id="Intervention" name="Intervention" rows="5" cols="40"></textarea>
-        <label class="w3-text-medaiidblue" for="Interv_conf">Confidence:</label>
-        <input type="range" id="Interv_conf" name="Interv_conf" min="0" max="10" />
-      </div>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-card-4 w3-third">
+      <h1 class="w3-center w3-large w3-text-burntorange">Diagnosis Recommendation</h1>
+      <textarea id="Diagnosis" name="Diagnosis" rows="5" cols="40"></textarea>
+      <label class="w3-text-medaiidblue" for="Diag_conf">Confidence:</label>
+      <input type="range" id="Diag_conf" name="Diag_conf" min="0" max="10" />
     </div>
+    <div class="w3-card-4 w3-third">
+      <h1 class="w3-center w3-large w3-text-burntorange">Test Recommendation</h1>
+      <textarea id="Tests" name="Tests" rows="5" cols="40"></textarea>
+      <label class="w3-text-medaiidblue" for="Test_conf">Confidence:</label>
+      <input type="range" id="Test_conf" name="Test_conf" min="0" max="10" />
+    </div>
+    <div class="w3-card-4 w3-third">
+      <h1 class="w3-center w3-large w3-text-burntorange">Treatment Recommendation</h1>
+      <textarea id="Intervention" name="Intervention" rows="5" cols="40"></textarea>
+      <label class="w3-text-medaiidblue" for="Interv_conf">Confidence:</label>
+      <input type="range" id="Interv_conf" name="Interv_conf" min="0" max="10" />
+    </div>
+  </div>
 
-    <input class="w3-center w3-button w3-medaiid-blue w3-margin-top w3-large" type="submit" value="Submit"
-      id="question-form-submit" style="width: 25%; margin: 0 37.5% 0 37.5%; padding: 0 10px 0 10px;" />
-  </form>
+  <input class="w3-center w3-button w3-medaiid-blue w3-margin-top w3-large" type="submit" value="Submit"
+    id="question-form-submit" style="width: 25%; margin: 0 37.5% 0 37.5%; padding: 0 10px 0 10px;" />
+</form>
 
 {% endif %}
 

@@ -31,7 +31,11 @@ class Question(db.Model):
 
 class Response(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(1000))
+    diagnoses = db.Column(db.String(1000))
+    tests = db.Column(db.String(1000))
+    interventions = db.Column(db.String(1000))
+    conf_level = db.Column(db.Integer)
+
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     question_id = db.Column(db.Integer, db.ForeignKey('question.id'), nullable=False)

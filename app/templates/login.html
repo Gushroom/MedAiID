@@ -1,29 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="padding: 300px; ">
-<div class=" w3-container w3-card-4  w3-display-middle w3-padding-small w3-border" >
-    <h3 class="w3-container w3-medaiid-blue w3-text-white">Login</h3>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <div class="notification is-danger">
-        {{ messages[0] }}
-    </div>
-    {% endif %}
-    {% endwith %}
-    <form class="w3-container" method="POST" action="/login">
-        <form method="POST" action="/signup">
-            <form method="POST" action="/login">
-                <input class="w3-input" type="email" name="email" placeholder="Your Email" autofocus="">
-                <input class="w3-input" type="password" name="password" placeholder="Your Password">
+<div class="pre-footer">
+    <div class=" w3-container w3-card-4  w3-display-middle w3-padding-small w3-border">
+        <h3 class="w3-container w3-medaiid-blue w3-text-white">Login</h3>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form class="w3-container" method="POST" action="/login">
+            <form method="POST" action="/signup">
+                <form method="POST" action="/login">
+                    <input class="w3-input" type="email" name="email" placeholder="Your Email" autofocus="">
+                    <input class="w3-input" type="password" name="password" placeholder="Your Password">
 
-                <div class="input-field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="remember">
-                        Remember me
-                    </label>
-                </div>
-                <button class="w3-button w3-medaiid-blue w3-text-white">Login</button>
-            </form>
-</div></div>
+                    <div class="input-field">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember">
+                            Remember me
+                        </label>
+                    </div>
+                    <button class="w3-button w3-medaiid-blue w3-text-white">Login</button>
+                </form>
+    </div>
+</div>
 {% endblock %}

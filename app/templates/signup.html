@@ -1,52 +1,52 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="padding: 300px; ">
-<div class=" w3-container w3-card-4 w3-container w3-display-middle w3-padding-small w3-border">
-    <h3 class="w3-container w3-medaiid-blue w3-text-white">Sign Up</h3>
-    <div class="box">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <div class="notification is-danger">
-            {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
-        </div>
-        {% endif %}
-        {% endwith %}
-        <form method="POST" action="/signup">
+<div class="pre-footer">
+    <div class=" w3-container w3-card-4 w3-container w3-display-middle w3-padding-small w3-border">
+        <h3 class="w3-container w3-medaiid-blue w3-text-white">Sign Up</h3>
+        <div class="box">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+            </div>
+            {% endif %}
+            {% endwith %}
             <form method="POST" action="/signup">
-                <div class="field">
-                    <div class="control">
-                        <input class="w3-input" type="email" name="email" placeholder="Email" autofocus="">
+                <form method="POST" action="/signup">
+                    <div class="field">
+                        <div class="control">
+                            <input class="w3-input" type="email" name="email" placeholder="Email" autofocus="">
+                        </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <div class="control">
-                        <input class="w3-input" type="text" name="name" placeholder="Name" autofocus="">
+                    <div class="field">
+                        <div class="control">
+                            <input class="w3-input" type="text" name="name" placeholder="Name" autofocus="">
+                        </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <div class="control">
-                        <input class="w3-input" type="password" name="password" placeholder="Password">
+                    <div class="field">
+                        <div class="control">
+                            <input class="w3-input" type="password" name="password" placeholder="Password">
+                        </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <div class="control">
-                        <select name="role">
-                            <option value="student">Student</option>
-                            <option value="doctor">Doctor</option>
-                            <option value="medical professional">Medical Professional</option>
-                            <option value="medical professor">Medical Professor</option>
-                        </select>
+                    <div class="field">
+                        <div class="control">
+                            <select name="role">
+                                <option value="student">Student</option>
+                                <option value="doctor">Doctor</option>
+                                <option value="medical professional">Medical Professional</option>
+                                <option value="medical professor">Medical Professor</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <button class="w3-button w3-container w3-medaiid-blue w3-text-white">Sign Up</button>
-            </form>
+                    <button class="w3-button w3-container w3-medaiid-blue w3-text-white">Sign Up</button>
+                </form>
+        </div>
     </div>
-</div>
 
 </div>
 {% endblock %}

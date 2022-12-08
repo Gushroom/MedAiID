@@ -181,3 +181,7 @@
 textarea {
   resize: none;
 }
+
+.pre-footer {
+  padding-bottom: 550px;
+}

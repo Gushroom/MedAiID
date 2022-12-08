@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-<form class=" w3-container w3-card w3-large w3-display-middle" action="{{ url_for('main.upload_question') }}" method="post">
-      <h3 class="w3-medaiid-blue w3-padding-small">Upload Question</h3>
-      <input class="w3-input" type="text" name="title" placeholder="Question Title" autofocus="">
-      <!-- <input class="w3-input" type="textbox" rows="10" name="question" placeholder="Question Content"> -->
-      <textarea id="question" name="question" placeholder="Question Content" rows="5" cols="40" style="float: left"></textarea>
-      <input class="w3-button w3-medaiid-blue" style="float: right; margin-top: 40px;" type="submit" value="Submit">
+
+<div class="pre-footer">
+  <form class=" w3-container w3-card w3-large w3-display-middle" action="{{ url_for('main.upload_question') }}"
+    method="post">
+    <h3 class="w3-medaiid-blue w3-padding-small">Upload Question</h3>
+    <input class="w3-input" type="text" name="title" placeholder="Question Title" autofocus="">
+    <!-- <input class="w3-input" type="textbox" rows="10" name="question" placeholder="Question Content"> -->
+    <textarea id="question" name="question" placeholder="Question Content" rows="5" cols="40"
+      style="float: left"></textarea>
+    <input class="w3-button w3-medaiid-blue" style="float: right; margin-top: 40px;" type="submit" value="Submit">
   </form>
+</div>
 {% endblock %}

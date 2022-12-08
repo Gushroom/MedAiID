@@ -1,22 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<div class="notification is-danger">
-  {{ messages[0] }}
+<div class="pre-footer">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="notification is-danger">
+    {{ messages[0] }}
+  </div>
+  {% endif %}
+  {% endwith %}
+  <h1 class="title">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}" />
+    <div class="w3-card-4 w3-display-middle w3-padding-small">
+      <h1 class="title w3-medaiid-blue w3-padding-small">Welcome to MedAiID!</h1>
+      <div><strong>Your name:</strong> {{ user.name }}</div>
+      <div><strong>Your email:</strong> {{ user.email }}</div>
+      <div><strong>Your role:</strong> {{ user.role }}</div>
+      <div class="w3-medaiid-blue w3-button">
+        <a href="{{ url_for('main.change_password') }}">Change password</a>
+      </div>
+  </h1>
 </div>
-{% endif %}
-{% endwith %}
-<h1 class="title">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}" />
-  <div class="w3-card-4 w3-display-middle w3-padding-small">
-    <h1 class="title w3-medaiid-blue w3-padding-small">Welcome to MedAiID!</h1>
-    <div><strong>Your name:</strong> {{ user.name }}</div>
-    <div><strong>Your email:</strong> {{ user.email }}</div>
-    <div><strong>Your role:</strong> {{ user.role }}</div>
-    <div class="w3-medaiid-blue w3-button">
-      <a href="{{ url_for('main.change_password') }}">Change password</a>
-    </div>
-</h1>
 {% endblock %}

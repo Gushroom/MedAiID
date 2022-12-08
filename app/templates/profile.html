@@ -2,23 +2,13 @@
 
 {% block content %}
 <h1 class="title">
-    Welcome, {{ name }}!
-    <div class="user-form">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}" />
+    <div class="login-form">
       <form>
-        <h1>USER NAME</h1>
-          <div class="action">
-            <button>Account</button>
-            <button>New Question</button>
-            <button>Old Question</button>
-            <button>Sign Out</button>
+        <h1 class="title">{{ name }}</h1>
+          <div class="action start-question">
+            <button>Begin New Question</button>
           </div>
-    
-        <div class="btn-group">
-          <button>Account</button>
-          <button>New Question</button>
-          <button>Old Question</button>
-          <button>Sign Out</button>
-        </div>
       </form>
     </div>
 </h1>

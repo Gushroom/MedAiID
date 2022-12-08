@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/question.css')}}" />
+<div>
+<main id="main-holder">
+  <h1 id="question-header">question number</h1>
+
+  <!-- THIS IS WHERE THE QUESTION GOES -->
+  <p id="patient-story">
+    <!-- A 4-month-old boy with severe combined immunodeficiency receives a bone
+    marrow transplant. Six days later, he develops a widespread,
+    erythematous, maculopapular rash over the trunk. Examination of a skin
+    biopsy specimen shows diffuse vacuolar degeneration of basal epidermal
+    cells with a mononuclear inflammatory cell infiltrate. -->
+    <!-- {% for question in questions %}
+      <div>{{ question.content }}</div>
+    {% endfor %} -->
+    <div>{{question}}</div>
+  </p>
+  <!-- THIS IS WHERE THE QUESTION GOES -->
+
+  <form id="question-form">
+    <div class="input-field">
+
+    <!-- Text Field -->
+    
+    <div class="input-field">
+      <div class="input-box">
+        <label class="label">Diagnosis</label> </div>
+        <textarea class="text-box" id="Diagnosis" name="Diagnosis" rows="10" cols="50"></textarea>
+      </div>
+
+      <div class="input-box">
+        <label>Tests</label> </div>
+        <textarea class="text-box" id="Tests" name="Tests" rows="10" cols="50"></textarea>
+      </div>
+
+      <div class="input-box">
+        <label class="label">Intervetion</label> </div>
+        <textarea class="text-box" id="Intervetion" name="Intervetion" rows="10"cols="50"></textarea> 
+      </div>
+    </div>
+
+    <div class="input-field">
+
+      <!-- Slider -->
+      <label for="points">Confidence (between 0 and 10):</label>
+      <input type="range" id="points" name="confidence" min="0" max="10" />
+    </div>
+
+
+    <!-- Submit Button -->
+    <input type="submit" value="submit" id="question-form-submit" />
+  </form>
+</main>
+</div>
+
+{% endblock %}

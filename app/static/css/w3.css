@@ -1670,11 +1670,6 @@ a {
     background-color: #ffeb3b !important
 }
 
-.w3-medaiid-blue {
-
-    background-color: #485358 !important
-}
-
 .w3-white,
 .w3-hover-white:hover {
     color: #000 !important;
@@ -2057,29 +2052,9 @@ a {
 }
 
 
-/* Full height image header */
-.bgimg-header {
-    background-position: center;
-    background-size: cover;
-    filter: opacity(85%);
-    background-image: linear-gradient(to right, #DF8940 5%, transparent 90%),
-        url("static/medstu.jpg");
-    background-attachment: fixed;
-    min-height: 100%;
-    -webkit-text-fill-color: white;
-
-}
-
 .icon {
     color: white;
 }
-
-
-
-.medaiid-logo {
-    width: 50%;
-}
-
 
 .w3-btn,
 .w3-button {
@@ -2150,7 +2125,6 @@ a {
     width: 6400px;
     height: 198px;
     animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite, swell 8s ease -1.25s infinite;
-    ;
     transform: translate3d(0, 0, 0);
 }
 
@@ -2195,11 +2169,9 @@ a {
     padding-top: 5px;
     padding-bottom: 5px;
 
+
 }
 
-.container {
-    position: relative;
-}
 
 .abt-logo {
 

@@ -1,3 +1,4 @@
+from email_validator import validate_email, EmailNotValidError
 from flask_login import login_user, login_required, logout_user
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -41,6 +42,12 @@ def signup_post():
     password = request.form.get('password')
 
     user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
+
+    try:
+        validation = validate_email(email, check_deliverability=True)
+        email = validation.email
+    except EmailNotValidError as e:
+        print(str(e))
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again
         flash("Email already exists")

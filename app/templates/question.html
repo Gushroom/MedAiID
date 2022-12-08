@@ -5,6 +5,13 @@
 <div>
 <main id="main-holder">
   <h1 id="question-header">question number</h1>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="notification is-danger">
+      {{ messages[0] }}
+  </div>
+  {% endif %}
+  {% endwith %}
 
   <!-- THIS IS WHERE THE QUESTION GOES -->
   <p id="patient-story">
@@ -16,43 +23,39 @@
     <!-- {% for question in questions %}
       <div>{{ question.content }}</div>
     {% endfor %} -->
-    <div>{{question}}</div>
+
+    <div>{{ question or 'No questions have been uploaded yet.' }}</div>
   </p>
   <!-- THIS IS WHERE THE QUESTION GOES -->
 
-  <form id="question-form">
-    <div class="input-field">
+  <div class="w3-container">
+    <form id="question-form", action="{{ url_for('main.questions') }}" method="post">
+      
+      <!-- Text Field -->
+      <div class="w3-row-padding">
+        <div class="w3-third">
+          <label class="label">Diagnosis</label> </div>
+          <textarea id="Diagnosis" name="Diagnosis" rows="10" cols="50"></textarea>
+        </div>
 
-    <!-- Text Field -->
-    
-    <div class="input-field">
-      <div class="input-box">
-        <label class="label">Diagnosis</label> </div>
-        <textarea class="text-box" id="Diagnosis" name="Diagnosis" rows="10" cols="50"></textarea>
-      </div>
+        <div class="w3-third">
+          <label>Tests</label> </div>
+          <textarea id="Tests" name="Tests" rows="10" cols="50"></textarea>
+        </div>
 
-      <div class="input-box">
-        <label>Tests</label> </div>
-        <textarea class="text-box" id="Tests" name="Tests" rows="10" cols="50"></textarea>
-      </div>
-
-      <div class="input-box">
-        <label class="label">Intervetion</label> </div>
-        <textarea class="text-box" id="Intervetion" name="Intervetion" rows="10"cols="50"></textarea> 
-      </div>
-    </div>
-
-    <div class="input-field">
-
+        <div class="w3-third">
+          <label class="label">Intervetion</label> </div>
+          <textarea id="Intervetion" name="Intervetion" rows="10"cols="50"></textarea> 
+        </div>
+      
       <!-- Slider -->
       <label for="points">Confidence (between 0 and 10):</label>
       <input type="range" id="points" name="confidence" min="0" max="10" />
-    </div>
-
 
     <!-- Submit Button -->
     <input type="submit" value="submit" id="question-form-submit" />
   </form>
+</div>
 </main>
 </div>
 

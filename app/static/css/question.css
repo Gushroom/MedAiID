@@ -1,22 +1,18 @@
-.label{
-  color: #000;
-}
-
-.text-box {
-  background: #00F;
+label{
+  color: #F00;
   text-align: center;
 }
 
-.input-field > .input-box {
-  font-size: 16px;
-  display: inline-block;
-  width: 250px;
-  border: 1px outset black;
-  padding: 30px;
-  box-sizing: border-box;
+textarea {
+  background: #FFF;
 }
 
 
+
+.input-group {
+  display: block;
+  background: #f00;
+}
 
 .input-group .input-box{
   background-color: #2d3b55; /* Green background */

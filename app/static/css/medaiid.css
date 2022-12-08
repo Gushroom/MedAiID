@@ -1,0 +1,191 @@
+.w3-medaiid-blue {
+  background-color: #485358 !important;
+  color: #fff !important;
+}
+
+.medaiid-logo {
+  width: 50%;
+}
+
+/* Full height image header */
+.bgimg-header {
+  background-position: center;
+  background-size: cover;
+  filter: opacity(85%);
+  background-image: linear-gradient(to right, #DF8940 5%, transparent 90%),
+    url("../images/medstu.jpg");
+  background-attachment: fixed;
+  min-height: 100%;
+  -webkit-text-fill-color: white;
+
+}
+
+.w3-medaiid-orange {
+  color: #DF8940 !important;
+  color: #000 !important;
+}
+
+.w3-text-burntorange {
+  color: #DF8940;
+}
+
+.w3-text-lightoragne {
+  color: #DF8940;
+}
+
+.w3-text-medaiidblue {
+  color: #485358;
+}
+
+
+.icon {
+  color: white;
+}
+
+.w3-btn,
+.w3-button {
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 40px;
+  padding: 5px;
+}
+
+.signup {
+  border-radius: 30px;
+  padding: 50px;
+  background-color: #485358;
+}
+
+#myNavbar {
+  background-color: #485358;
+  vertical-align: middle;
+
+}
+
+.circle {
+  display: inline-block;
+  border-radius: 75px;
+  background-color: #F3DACF;
+  padding: 0.5em 0.6em;
+}
+
+
+.pulsating-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 30px;
+  height: 30px;
+}
+
+
+
+.w3-card-round {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+
+.ocean {
+  height: 5%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #6b5da4;
+}
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/wavePurple.svg) repeat-x;
+  position: absolute;
+  bottom: -10px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite, swell 8s ease -1.25s infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+
+  0%,
+  100% {
+    transform: translate3d(0, -40px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+.endWave {
+  display: none;
+}
+
+.render-gif-med {
+
+  border-radius: 140px;
+  border-bottom-left-radius: 40px;
+  border-top-right-radius: 40px;
+  filter: opacity(65%);
+  float: left;
+  line-height: 27px;
+  width: 100%;
+  padding: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+
+.abt-logo {
+
+  padding: 10px;
+  padding-bottom: 50px;
+  width: 250px;
+
+}
+
+.animate-logo {
+
+  padding: 10px;
+  padding-bottom: 50px;
+  width: 95%;
+
+}
+
+/* Full height image header
+.bgimg-header {
+  background-position: center;
+  background-size: cover;
+  filter: opacity(85%);
+  background-image: linear-gradient(to right, #DF8940 5%, transparent 90%),
+    url("../images/medstu.jpg");
+  background-attachment: fixed;
+  min-height: 100%;
+  -webkit-text-fill-color: white;
+
+} */
+
+.icon {
+  color: white;
+}

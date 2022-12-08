@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}" />
+  <div class="w3-card-4 w3-display-middle w3-padding-small">
+    <form>
+      <h1 class="title">Welcome, {{ name }}!</h1>
+      <div class="w3-medaiid-blue w3-button">
+        <a href="{{ url_for('main.questions') }}">Begin New Question</a>
+      </div>
+    </form>
+  </div>
+</h1>
+{% endblock %}

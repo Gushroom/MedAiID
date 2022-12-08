@@ -2,14 +2,13 @@
 
 {% block content %}
 <h1 class="title">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}" />
-    <div class="login-form">
-      <form>
-        <h1 class="title">{{ name }}</h1>
-          <div class="action start-question">
-            <button>Begin New Question</button>
-          </div>
-      </form>
-    </div>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}" />
+  <div class="w3-card-4 w3-display-middle w3-padding-small">
+      <h1 class="title">Welcome to MedAiID!</h1>
+      <div>Your name: {{ name }}</div>
+      <div>Your email: {{ email }}</div>
+      <div class="w3-black w3-button">
+        <a href="{{ url_for('main.change_password') }}">CHANGE PASSWORD</a>
+  </div>
 </h1>
 {% endblock %}

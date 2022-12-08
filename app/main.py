@@ -121,14 +121,6 @@ def responses():
     responses = current_user.responses_posted
     return(render_template('responses.html', responses = responses, user = current_user))
 
-@main.route('/view_response/<int:uid>/<int:qid>', methods=['GET', 'POST'])
-@login_required
-def response(uid, qid):
-    response = Response.query.filter_by(user_id=uid, question_id=qid).first()
-    user = User.query.filter_by(id=uid).first()
-    question = Question.query.filter_by(id=qid).first()
-    return(render_template('response.html', response = response, user = user, question = question))
-
 
 # @main.route('/question/<int:question_id>', methods=['GET', 'POST'])
 # @login_required

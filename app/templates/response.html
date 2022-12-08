@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="w3-card-4 w3-large w3-button w3-centered w3-center w3-third">
+    {{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %}
+<div class="w3-card-4 w3-large w3-button w3-centered w3-center w3-third">
+    <h1 class="title">Response #{{ response.id }}</h1>
+    <h1 class="title">Diagnosis: {{ response.diagnosis }}</h1>
+    <h1 class="title">Confidence: {{ response.diag_conf }}</h1>
+    <h1 class="title">Tests: {{ response.tests }}</h1>
+    <h1 class="title">Confidence: {{ response.test_conf }}</h1>
+    <h1 class="title">Intervention: {{ response.interventions }}</h1>
+    <h1 class="title">Confidence: {{ response.inter_conf }}</h1>
+</div>
+{% endblock %}

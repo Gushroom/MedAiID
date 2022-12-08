@@ -13,15 +13,9 @@
 <a href="{{ url_for('main.response', uid=response.user_id, qid=response.question_id) }}">User #{{response.user_id}}'s response to question #{{response.question_id}}</a>
 {% endfor %}
 
-{% elif response %}
+{% else %}
 <div class="w3-card-4 w3-large w3-button w3-centered w3-center w3-third">
-    <h1 class="title">Response #{{ response.id }}</h1>
-    <h1 class="title">Diagnosis: {{ response.diagnosis }}</h1>
-    <h1 class="title">Confidence: {{ response.diag_conf }}</h1>
-    <h1 class="title">Tests: {{ response.tests }}</h1>
-    <h1 class="title">Confidence: {{ response.test_conf }}</h1>
-    <h1 class="title">Intervention: {{ response.interventions }}</h1>
-    <h1 class="title">Confidence: {{ response.inter_conf }}</h1>
+    <h1 class="title">No responses found!</h1>
 </div>
 {% endif %}
 

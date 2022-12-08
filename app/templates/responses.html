@@ -11,10 +11,10 @@
     {% if responses %}
     <div>Here are the responses you can view:</div>
     {% for response in responses %}
-    <button onclick="accordion('QuestionId{{response.question_id}}')"
+    <button onclick="accordion('ResponseId{{response.id}}')"
         class="w3-btn w3-block w3-medaiid-blue w3-centered w3-padding-small">User {{response.user_id}}'s response to
         Question {{response.question_id}}</button>
-    <div id="QuestionId{{response.question_id}}" class="w3-container w3-hide">
+    <div id="ResponseId{{response.id}}" class="w3-container w3-hide">
         <p class="title"><strong>Diagnosis:</strong> {{ response.diagnosis }}</p>
         <p class="title">Confidence: {{ response.diag_conf }}</p>
         <p class="title"><strong>Tests:</strong> {{ response.tests }}</p>

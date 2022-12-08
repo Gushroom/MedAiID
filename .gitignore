@@ -3,3 +3,4 @@ medaiid/
 app/db.sqlite
 app/__pycache__/
 .venv
+.DS_Store

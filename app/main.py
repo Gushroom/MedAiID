@@ -32,7 +32,7 @@ def change_password():
         new_pass_hash = generate_password_hash(new_pass, method='sha256')
         current_user.password = new_pass_hash
         db.session.commit()
-        return render_template('home.html')
+        return render_template('home.html', user = current_user)
     return render_template('changepass.html')
 
 @main.route('/profile', methods=['GET', 'POST'])

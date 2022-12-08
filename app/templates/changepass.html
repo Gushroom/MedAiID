@@ -9,17 +9,15 @@
   </div>
   {% endif %}
   {% endwith %}
-  <h1 class="title">Change Password</h1>
-  <form action="{{ url_for('main.change_password') }}" method="post">
-    <dl>
-      <dt>Old Password:
-      <dd><input type="password" name="old_password">
-      <dt>New Password:
-      <dd><input type="password" name="new_password">
-      <dt>Confirm New Password:
-      <dd><input type="password" name="repeat_password">
-      <dd><input type="submit" value="Submit">
-    </dl>
-  </form>
+
+  <div class="w3-card-4 w3-large w3-display-middle">
+    <h1 class="title w3-padding-small w3-medaiid-blue">Change Password</h1>
+    <form action="{{ url_for('main.change_password') }}" method="post">
+      <input class="w3-input" type="password" name="old_password" placeholder="Old Password" autofocus="">
+      <input class="w3-input" type="password" name="new_password" placeholder="New Password">
+      <input class="w3-input" type="password" name="repeat_password" placeholder="Confirm New Password">
+      <input class="w3-button w3-medaiid-blue" type="submit" value="Submit">
+    </form>
+  </div>
 </div>
 {% endblock %}

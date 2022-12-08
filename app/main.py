@@ -154,10 +154,3 @@ def response(uid, qid):
 #     db.session.add(new_question)
 #     db.session.commit() 
 #     return render_template('question.html')
-
-@main.route('/answered_questions', methods=['GET', 'POST'])
-@login_required
-def answered():
-    responses = Response.query.all()
-    questions_answered = current_user.questions
-    return(render_template('responses.html', responses = responses))

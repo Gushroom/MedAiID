@@ -8,8 +8,9 @@
 {% endif %}
 {% endwith %}
 {% if responses %}
+<div>Here are the responses you can view:</div>
 {% for response in responses %}
-<a href="{{ url_for('main.response', uid=user.id, qid=question.id) }}"></a>
+<a href="{{ url_for('main.response', uid=response.user_id, qid=response.question_id) }}">User #{{response.user_id}}'s response to question #{{response.question_id}}</a>
 {% endfor %}
 
 {% elif response %}
@@ -19,8 +20,8 @@
     <h1 class="title">Confidence: {{ response.diag_conf }}</h1>
     <h1 class="title">Tests: {{ response.tests }}</h1>
     <h1 class="title">Confidence: {{ response.test_conf }}</h1>
-    <h1 class="title">Intervention: {{ response.intervention }}</h1>
-    <h1 class="title">Confidence: {{ response.interv_conf }}</h1>
+    <h1 class="title">Intervention: {{ response.interventions }}</h1>
+    <h1 class="title">Confidence: {{ response.inter_conf }}</h1>
 </div>
 {% endif %}
 

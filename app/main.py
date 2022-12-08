@@ -44,9 +44,13 @@ def profile():
 @main.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload_question():
+    if current_user.role != 'medical professor':
+        flash('You are not authorized to upload questions')
+        return render_template('home.html', user = current_user)
     if request.method == 'POST':
+        title = request.form['title']
         question = request.form['question']
-        new_question = Question(content=question)
+        new_question = Question(title=title, content=question)
         db.session.add(new_question)
         db.session.commit() 
     return render_template('upload.html')
@@ -57,17 +61,24 @@ def upload_question():
 def questions():
     all_questions = Question.query.all()
     questions_answered = current_user.questions
+    print(f"questions answered: {questions_answered}")
     unanswered_questions = []
     for question in all_questions:
+        print(f"question: {question}")
         if question not in questions_answered:
             unanswered_questions.append(question)
     if not unanswered_questions:
         flash('No questions available')
         return render_template("home.html", user = current_user)
-    selected_question = random.choice(unanswered_questions)
-    if request.method == 'GET':
-        return render_template('question.html', question = selected_question)
+    return render_template('questions.html', questions = unanswered_questions)
+
+
+@main.route('/question/<int:qid>', methods=['GET', 'POST'])
+@login_required
+def question(qid):
+    selected_question = Question.query.filter_by(id=qid).first()
     if request.method == 'POST':
+        # print(f"selected question: {selected_question}")
         diagnosis = request.form['Diagnosis']
         diag_conf = request.form['Diag_conf']
         tests = request.form['Tests']
@@ -84,6 +95,7 @@ def questions():
             flash("Please enter an intervention")
             return render_template('question.html', question = selected_question)
         question_id = selected_question.id
+        # print(f"question id: {question_id}")
         answerer_id = current_user.id
         new_response = Response(diagnosis=diagnosis, diag_conf=diag_conf, 
         tests=tests, test_conf=test_conf, interventions=interventions, inter_conf=inter_conf, 
@@ -93,22 +105,29 @@ def questions():
         current_user.questions.append(selected_question)
         selected_question.responses.append(new_response)
         db.session.commit()
+        print(f"question answered: {current_user.questions}")
         # add response to the current user
-        flash(f"Response submitted to question {selected_question.id}")
-    return(render_template('home.html', user = current_user))
+        flash(f"Response submitted to question {question_id}")
+        return render_template('home.html', user = current_user)
+    return render_template('questions.html', question = selected_question)
+
 
 @main.route('/responses', methods=['GET', 'POST'])
 @login_required
 def responses():
-    
-    responses = Response.query.all()
-    return(render_template('responses.html', responses = responses))
+    if current_user.role == 'medical professor':
+        responses = Response.query.all()
+        return(render_template('responses.html', responses = responses))
+    responses = current_user.responses_posted
+    return(render_template('responses.html', responses = responses, user = current_user))
 
 @main.route('/responses/<int:uid>/<int:qid>', methods=['GET', 'POST'])
 @login_required
 def response(uid, qid):
     response = Response.query.filter_by(user_id=uid, question_id=qid).first()
-    return(render_template('response.html', response = response))
+    user = User.query.filter_by(id=uid).first()
+    question = Question.query.filter_by(id=qid).first()
+    return(render_template('responses.html', response = response, user = user, question = question))
 
 
 # @main.route('/question/<int:question_id>', methods=['GET', 'POST'])

@@ -32,11 +32,12 @@ class User(UserMixin, db.Model):
 
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(1000))
     content = db.Column(db.String(1000))
     responses = db.relationship('Response')
 
     def __repr__(self):
-        return f"{self.id}: {self.content}"
+        return f"{self.id}: {self.title} \n{self.content}"
 
     
 

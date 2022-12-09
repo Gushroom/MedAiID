@@ -4,4 +4,5 @@ A project for Pitt CS1530
 
 - [Dan Li](https://github.com/til61)
 - [Jared Peters](https://github.com/jrddp)
-- [Your Name](your github profile)
+- [Hanzala Rehan](https://github.com/Hanzalar)
+- [Jason Zukiewicz](https://github.com/Jason-Zukiewicz)
